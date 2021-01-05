@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+    jimberbrowser_spawner:
+        build:
+            context: spawner
+        container_name: jimberbrowser_spawner
+        image: jimberbrowser_spawner
+        environment:
+            - "ENVIRONMENT=development"
+        restart: always
+        ports:
+            - 1337:80
+        volumes:
+            - jimber_downloads:/opt/jimber/browser/www/downloads
+            - /var/run/docker.sock:/var/run/docker.sock
+        networks:
+            - jimberbrowser
+networks:
+    jimberbrowser:
+        external:
+            name: jimberbrowser
+volumes:
+    jimber_downloads:
+        external: true

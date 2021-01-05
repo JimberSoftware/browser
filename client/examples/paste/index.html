@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.addEventListener("paste", (ev) => {
+            document.body.innerText = e;
+            const woo = ev.clipboardData.items;
+            for (var b = ev || {}, c = b.clipboardData || {}, d = c.items || [], e = 0; e < d.length; e++) {
+                let i = d[e]
+                if (i.type === "text/plain") {
+                    console.log(i.getAsString((result) => {
+
+                        document.body.innerText = result;
+
+                    }))
+                } else if (i.type === "image/png") {
+                    const f = i.getAsFile();
+                    if (f) {
+
+                        var g = new FileReader;
+                        g.onload = function (a) {
+                            // console.log(a.target.result)
+                            var image = new Image();
+                            image.src = a.target.result;
+                            document.body.innerHTML = "";
+                            document.body.appendChild(image);
+                            // console.log("sent")
+                        }.bind(this);
+                        g.readAsDataURL(f)
+                    }
+                }
+            }
+        }
+        )
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<html>
+    <input id='record' type='button' value='start or stop whatever'>
+    <script>
+        var button = document.getElementById('record');
+        button.addEventListener('click', () => {
+            navigator.getUserMedia(
+            {audio: true}, 
+            (stream) => {
+              //send to backend
+                // use MediaStream Recording API
+                const recorder = new MediaRecorder(stream);
+                console.log('1111sdj')
+        
+                // fires every one second and passes an BlobEvent
+                recorder.ondataavailable = event => {
+        
+                    // get the Blob from the event
+                    const blob = event.data;
+                    console.log('qsadsfadsf;lkasdj', blob.arrayBuffer())
+                };
+        
+                recorder.start(1000);
+            },
+            () => { 
+            }
+            )
+        })
+    </script>
+</html>

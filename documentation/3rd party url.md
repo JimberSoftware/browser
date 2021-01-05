@@ -1,0 +1,1 @@
+https://askubuntu.com/questions/330937/is-it-possible-to-open-an-ubuntu-app-from-html

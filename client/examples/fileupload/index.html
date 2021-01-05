@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label for="file">Pick a file</label><br>
+        <input type="file" id="file" name="file">
+        <hr>
+        <label for="image">Pick an image</label><br>
+        <input type="file" id="image" name="image" accept="image/png, image/jpeg">
+        <hr>
+        <label for="image">Pick multiple files</label><br>
+        <input type="file" id="files" name="files" multiple>
+        <hr>
+        <label for="capture">Capture</label> - seems to not be working on linux?<br>
+        <input type="file" name="capture" capture="user" accept="video">
+    </form>
+
+</body>
+
+</html>

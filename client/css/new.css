@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+
+    overflow: hidden;
+    background-image: url('../img/ui/loading.gif');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    height:100%;
+}
+
+#page-load-spinner {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+    z-index: 2;
+    visibility: hidden;
+}

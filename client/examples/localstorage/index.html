@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Localstorage</title>
+</head>
+<body>
+    <label for="key">key </label><input name="key" id="key" type="text"><br>
+    <label for="value">value </label><input name="value" id="value" type="text"><br>
+    <button onclick="saveToStorage()">save</button> <br>
+    localStorage contents:
+    <pre id="local-storage-contents" style="max-width: 100%;"></pre>
+
+    <script>
+        document.getElementById("local-storage-contents").innerText = JSON.stringify(window.localStorage, undefined, 2)
+        window.localStorage.setItem("Hello", "world3")
+
+        function refresh() {
+            document.location = window.location
+        }
+        function saveToStorage() {
+            localStorage.setItem(document.getElementById("key").value, document.getElementById("value").value)
+            refresh();
+        }
+    </script>
+
+    <button onclick="refresh()">Refresh</button>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+FROM ubuntu:18.04
+#this file is used to build both qpa and browser binaries
+RUN apt-get update -y
+RUN apt-get install wget bison build-essential gperf flex ruby python libasound2-dev libbz2-dev libcap-dev \
+    libcups2-dev libdrm-dev libegl1-mesa-dev libgcrypt11-dev libnss3-dev libpci-dev libpulse-dev libudev-dev \
+    libxtst-dev gyp ninja-build libfreetype6-dev libfontconfig-dev -y
+ENV QT_CI_PACKAGES="qt.qt5.5132.gcc_64,qt.qt5.5132.qtwebglplugin,qt.qt5.5132.qtwebengine"
+ENV QTDIR=/qt/5.13.2/gcc_64
+ENV PATH="$QTDIR/bin:$PATH"
+ENV LD_LIBRARY_PATH="$QTDIR/lib:$LD_LIBRARY_PATH"
+# RUN wget -P /tmp/ http://192.168.2.52:8000/qt-opensource-linux-x64-5.13.2.run
+COPY ./browserdocker/qt-opensource-linux-x64-5.13.2.run /tmp/qt-opensource-linux-x64-5.13.2.run
+COPY ./browserdocker/extract-qt-installer /tmp/extract-qt-installer
+RUN chmod +x /tmp/qt-opensource-linux-x64-5.13.2.run
+RUN chmod +x /tmp/extract-qt-installer
+RUN /tmp/extract-qt-installer /tmp/qt-opensource-linux-x64-5.13.2.run /qt
+RUN apt install -y libavformat-dev libswscale-dev
+RUN mkdir -p /opt/jimber
+WORKDIR /opt/jimber
+COPY browser browser
+COPY qpa qpa
+COPY jxcommands.h jxcommands.h
+RUN cd browser && make clean ; rm Makefile ; qmake && make
+RUN cd qpa && make clean ; rm -rf Makefile build lib mkspecs ; ls ; qmake && make
+RUN echo done

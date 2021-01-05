@@ -1,0 +1,19 @@
+<html>
+
+<body>
+    <canvas width="500" height="500" id='canvas'></canvas>
+</body>
+<script>
+    (function () {
+        var canvas = document.getElementById("canvas")
+        canvas.requestPointerLock = canvas.requestPointerLock ||
+            canvas.mozRequestPointerLock;
+        canvas.addEventListener('click', () => {
+            console.log("clicked")
+            canvas.requestPointerLock();
+
+        })
+    })();
+</script>
+
+</html>

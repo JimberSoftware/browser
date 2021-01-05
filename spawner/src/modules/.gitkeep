@@ -1,0 +1,2 @@
+This directory is required to start the spawner.
+The spawner will load every module inside this modules folder.

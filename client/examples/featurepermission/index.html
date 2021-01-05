@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="getCurrentPosition()">
+        Geolocation
+    </button>
+    <button onclick="requestNotifications()">
+        Notifications
+    </button>
+    <button onclick="requestCamera()">
+        Camera
+    </button>
+    <button onclick="requestMicrophone()">
+        Microphone
+    </button>
+    <button onclick="requestCameraAndMicrophone()">
+        Camera and Microphone
+    </button>
+    <script>
+        function getCurrentPosition() {
+            navigator.geolocation.getCurrentPosition(
+                function () {
+                    document.body.innerHTML += "Geolocation granted";
+                },
+                function () {
+                    document.body.innerHTML += "Geolocation denied";
+                });
+        }
+        function requestNotifications() {
+            Notification.requestPermission().then((answer) => {
+                if (answer === "granted") document.body.innerHTML += "Notifications granted";
+                if (answer === "denied") document.body.innerHTML += "Notifications denied";
+            })
+        }
+        function requestCamera() {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then((stream) => {
+                document.body.innerHTML += "Camera granted";
+            }).catch(() => {
+                document.body.innerHTML += "Camera denied";
+            })
+        }
+        function requestMicrophone() {
+            navigator.mediaDevices.getUserMedia({ video: false, audio: true }).then((stream) => {
+                document.body.innerHTML += "Microphone granted";
+            }).catch(() => {
+                document.body.innerHTML += "Microphone denied";
+            })
+        }
+        function requestCameraAndMicrophone() {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
+                document.body.innerHTML += "Camera granted";
+            }).catch(() => {
+                document.body.innerHTML += "Camera denied";
+            })
+        }
+
+    </script>
+</body>
+
+</html>
