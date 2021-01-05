@@ -6,9 +6,9 @@ Redistribution and use in source and binary forms, with or without modification,
 
 These conditions require a modest attribution to Jimber BVBA, a company incorporated and existing under the laws of Belgium, having its registered office at Patotterijstraat 76, 9250 Waasmunster and with company number 0684.939.269 (the "Author"), who hopes that its promotional value may help justify the significant amount in otherwise billable time invested in writing this software.
 
-1. Redistributions of the source code, in whole or part and with or without modification (the "Code"), must prominently display this GPG-signed text in verifiable form.
+1. Redistributions of the source code, in whole or part and with or without modification (the "Code"), must prominently display this text.
 
-2. Redistributions of the Code in binary form must be accompanied by this GPG-signed text in any documentation and, each time the resulting executable program or a program dependent thereon is launched, a prominent display (e.g., splash screen or banner text) of the Author's attribution information, which includes: (a) Jimber BVBA and (b) https://www.jimber.org.
+2. Redistributions of the Code in binary form must be accompanied by this text in any documentation and, each time the resulting executable program or a program dependent thereon is launched, a prominent display (e.g., splash screen or banner text) of the Author's attribution information, which includes: (a) Jimber BVBA and (b) https://www.jimber.io.
 
 Jimber's logo, at a minimum size of 272x143 pixels, must at all times be visible in the executable program that is based and/or dependent on the Code. The logo can be found at this URL: https://www.jimber.io/logo.svg.
 
